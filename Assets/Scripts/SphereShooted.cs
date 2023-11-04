@@ -4,38 +4,37 @@ using UnityEngine;
 
 public class SphereShooted : Target
 {
-    private float scaleFactor = 0.8f; 
-    private int maxImpacts = 3; 
-    public int currentImpacts = 0;
+    private float scaleFactor = 0.8f;  // Factor de escala para reducir el tamaño del objeto.
+    private int maxImpacts = 5;        // Número máximo de impactos permitidos.
+    public int currentImpacts = 0;     // Contador de impactos actuales.
 
     public void ReduceScale()
     {
-        // scale reducer
+        // Método para reducir la escala del objeto.
         transform.localScale *= scaleFactor;
     }
 
     public override void HandleImpact()
     {
-        ReduceScale();
+        ReduceScale();  // Llama al método para reducir la escala del objeto.
 
-        // impacts counter
+        // Incrementa el contador de impactos.
         currentImpacts++;
 
-        // Checks for max impacts
+        // Comprueba si se alcanzó el número máximo de impactos.
         if (currentImpacts >= maxImpacts)
         {
-            Destroy(gameObject);
-
+            Destroy(gameObject);  // Destruye el objeto si se supera el número máximo de impactos.
         }
     }
 
     void Start()
     {
-        
+        // Este método se ejecuta al inicio, pero en este caso está vacío.
     }
 
     void Update()
     {
-        
+        // Este método se ejecuta en cada frame, pero en este caso está vacío.
     }
 }
